@@ -19,7 +19,15 @@ export default function SEO({
   type = 'website',
   siteName = import.meta.env.VITE_GOVERNMENT_NAME || 'Local Government Website',
 }: SEOProps) {
-  const defaultTitle = `${siteName} - Official Government Website`;
+  const titleSuffix = 'Bettercal.org';
+  const govType = import.meta.env.VITE_GOVERNMENT_TYPE;
+  const province = import.meta.env.VITE_PROVINCE;
+  const homeTitle = `${siteName}${govType ? ` ${govType}` : ''}${
+    province ? `, ${province}` : ''
+  }`;
+  const defaultTitle = homeTitle
+    ? `${homeTitle} | ${titleSuffix}`
+    : `${siteName} - Official Government Website`;
   const defaultDescription =
     import.meta.env.VITE_SITE_DESCRIPTION ||
     `Official website of ${siteName}. Access government services, information, and resources.`;
@@ -27,7 +35,7 @@ export default function SEO({
     import.meta.env.VITE_SITE_KEYWORDS ||
     'government, local government, services, public services, civic services';
 
-  const fullTitle = title ? `${title} | ${siteName}` : defaultTitle;
+  const fullTitle = title ? `${title} | ${titleSuffix}` : defaultTitle;
   const fullDescription = description || defaultDescription;
   const fullKeywords = keywords || defaultKeywords;
   const fullUrl = url || import.meta.env.VITE_WEBSITE_URL || '';

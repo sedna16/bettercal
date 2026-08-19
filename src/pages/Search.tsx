@@ -4,6 +4,7 @@ import { useQueryState } from 'nuqs';
 import { Search as SearchIcon } from 'lucide-react';
 import { searchClient, SEARCH_INDEX } from '../lib/meilisearch';
 import type { SearchHit } from '../lib/meilisearch';
+import SEO from '../components/SEO';
 
 export default function Search() {
   const [query, setQuery] = useQueryState('q', { defaultValue: '' });
@@ -41,6 +42,7 @@ export default function Search() {
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl">
+      <SEO title="Search" />
       <h1 className="text-2xl font-bold text-gray-900 mb-6">Search</h1>
 
       <div className="relative mb-8">
