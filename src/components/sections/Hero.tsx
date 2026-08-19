@@ -192,7 +192,7 @@ export default function Hero() {
                 )}
               </form>
 
-              <div className="flex flex-nowrap items-center gap-1.5 mt-3">
+              <div className="flex flex-wrap items-center gap-1.5 mt-3">
                 <span className="text-xs font-semibold text-gray-500 whitespace-nowrap">
                   Find a Service:
                 </span>
@@ -200,7 +200,7 @@ export default function Hero() {
                   <Link
                     key={service.href}
                     to={service.href}
-                    className="rounded-full bg-primary-50 px-2.5 py-1 text-xs text-primary-700 font-medium whitespace-nowrap hover:bg-primary-100 transition-colors"
+                    className="rounded-full bg-primary-50 px-2.5 py-1 text-xs text-primary-700 font-medium hover:bg-primary-100 transition-colors"
                   >
                     {service.label}
                   </Link>
