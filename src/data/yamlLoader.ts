@@ -23,7 +23,7 @@ export interface CategoryData {
 export interface CategoryIndexData {
   title?: string;
   description?: string;
-  layout?: 'grid' | 'list';
+  layout?: 'grid' | 'list' | 'inline';
   pages: Subcategory[];
 }
 
@@ -42,6 +42,7 @@ import garbageWasteDisposalIndex from '../../content/services/garbage-waste-disp
 import environmentIndex from '../../content/services/environment/index.yaml?raw';
 import disasterPreparednessIndex from '../../content/services/disaster-preparedness/index.yaml?raw';
 import housingLandUseIndex from '../../content/services/housing-land-use/index.yaml?raw';
+import zipCodesIndex from '../../content/services/zip-codes/index.yaml?raw';
 import governmentDepartmentsIndex from '../../content/government/departments/index.yaml?raw';
 import governmentDepartmentsLegislativeIndex from '../../content/government/departments/legislative/index.yaml?raw';
 
@@ -57,6 +58,7 @@ const categoryIndexMap: { [key: string]: string } = {
   environment: environmentIndex,
   'disaster-preparedness': disasterPreparednessIndex,
   'housing-land-use': housingLandUseIndex,
+  'zip-codes': zipCodesIndex,
   departments: governmentDepartmentsIndex,
   legislative: governmentDepartmentsLegislativeIndex,
 };
@@ -73,7 +75,7 @@ export const governmentCategories: CategoryData = yaml.load(
 export interface CategoryIndex {
   title?: string;
   description?: string;
-  layout: 'grid' | 'list';
+  layout: 'grid' | 'list' | 'inline';
   pages: Subcategory[];
 }
 

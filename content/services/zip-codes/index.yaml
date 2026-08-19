@@ -1,0 +1,10 @@
+# Zip Codes Category Pages
+# This file contains all the pages/services available under the Zip Codes category
+# layout: 'inline' renders the first page's markdown directly on the category page
+
+layout: 'inline'
+
+pages:
+  - name: 'Caloocan City Zip Codes'
+    slug: 'caloocan-city-zip-codes'
+    description: 'Complete list of postal (ZIP) codes for Caloocan City, organized by North and South districts.'

@@ -4,6 +4,12 @@
 # Non-technical users can easily edit this file to add, remove, or modify service categories
 
 categories:
+  # Zip Codes
+  - category: 'Zip Codes'
+    slug: 'zip-codes'
+    description: 'Postal (ZIP) codes for Caloocan City by district and area, split into North and South Caloocan.'
+    icon: 'MapPin'
+
   # Health Services
   - category: 'Health Services'
     slug: 'health-services'

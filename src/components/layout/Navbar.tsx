@@ -96,9 +96,7 @@ const Navbar: React.FC = () => {
                 className="h-12 w-12 mr-3 object-contain"
               />
               <div>
-                <div className="text-black font-bold">
-                  {import.meta.env.VITE_GOVERNMENT_NAME}
-                </div>
+                <div className="text-black font-bold">BetterCal.org</div>
                 <div className="text-xs text-gray-800">
                   {t('site_description')}
                 </div>
