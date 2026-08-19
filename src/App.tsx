@@ -7,6 +7,9 @@ import ScrollToTop from './components/ui/ScrollToTop';
 import Services from './pages/Services';
 import Document from './pages/Document';
 import Government from './pages/Government';
+import National from './pages/National';
+import Local from './pages/Local';
+import Info from './pages/Info';
 import Search from './pages/Search';
 import { isMeilisearchEnabled } from './lib/meilisearch';
 import { BrowserRouter as Router, Routes, Route } from 'react-router';
@@ -29,6 +32,24 @@ function App() {
               />
               <Route path="/government/:category" element={<Government />} />
               <Route path="/government" element={<Government />} />
+              <Route path="/government/national" element={<National />} />
+              <Route path="/government/local" element={<Local />} />
+              <Route
+                path="/statistics"
+                element={<Info slug="statistics" label="Statistics" />}
+              />
+              <Route
+                path="/history"
+                element={<Info slug="history" label="History" />}
+              />
+              <Route
+                path="/transparency"
+                element={<Info slug="transparency" label="Transparency" />}
+              />
+              <Route
+                path="/contact"
+                element={<Info slug="contact" label="Contact" />}
+              />
               <Route
                 path="/government/:category/:documentSlug"
                 element={<Document categoryType="government" />}

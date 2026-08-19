@@ -24,6 +24,22 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: 'Government',
     href: '/government/departments',
+    children: [
+      { label: 'National', href: '/government/national' },
+      { label: 'Local', href: '/government/local' },
+    ],
+  },
+  {
+    label: 'Statistics',
+    href: '/statistics',
+  },
+  {
+    label: 'History',
+    href: '/history',
+  },
+  {
+    label: 'Transparency',
+    href: '/transparency',
   },
 ];
 
@@ -36,7 +52,7 @@ export const footerNavigation = {
         // { label: 'Privacy Policy', href: '/privacy' },
         // { label: 'Terms of Use', href: '/terms' },
         { label: 'Accessibility', href: '/accessibility' },
-        { label: 'Contact Us', href: '/about' },
+        { label: 'Contact Us', href: '/contact' },
         { label: 'Community Discord', href: '/discord' },
       ],
     },

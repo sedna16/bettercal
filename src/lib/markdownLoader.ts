@@ -5,7 +5,7 @@
 /**
  * Replaces {PLACEHOLDER} tokens using JSON data first, then VITE_ env vars.
  */
-function interpolate(
+export function interpolate(
   content: string,
   data: Record<string, unknown> = {}
 ): string {

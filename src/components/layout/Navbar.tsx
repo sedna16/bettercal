@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  X,
-  Menu,
-  ChevronDown,
-  Globe,
-  Search,
-  CheckCircle2,
-} from 'lucide-react';
+import { X, Menu, ChevronDown, Globe, Search } from 'lucide-react';
 import { mainNavigation } from '../../data/navigation';
 import type { LanguageType } from '../../types/index';
 import { Link } from 'react-router';
@@ -97,12 +90,11 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <CheckCircle2 className="h-12 w-12 mr-3" />
-              {/* <img
-                src="/ph-logo.webp"
-                alt="Philippines Coat of Arms"
-                className="h-12 w-12 mr-3"
-              /> */}
+              <img
+                src="/logo.svg"
+                alt={`${import.meta.env.VITE_GOVERNMENT_NAME} logo`}
+                className="h-12 w-12 mr-3 object-contain"
+              />
               <div>
                 <div className="text-black font-bold">
                   {import.meta.env.VITE_GOVERNMENT_NAME}
@@ -115,7 +107,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop navigation */}
-          <div className="hidden lg:flex items-center space-x-8 pr-24">
+          <div className="hidden lg:flex items-center space-x-8">
             {mainNavigation.map(item => (
               <div key={item.label} className="relative group">
                 <a
@@ -149,13 +141,11 @@ const Navbar: React.FC = () => {
                 )}
               </div>
             ))}
-          </div>
-          <div className="hidden lg:flex items-center space-x-6">
             <Link
-              to="/about"
+              to="/contact"
               className="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
             >
-              About
+              Contact
             </Link>
             {isMeilisearchEnabled && (
               <Link
@@ -166,12 +156,6 @@ const Navbar: React.FC = () => {
                 Search
               </Link>
             )}
-            {/* <Link
-              to="/sitemap"
-              className="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
-            >
-              Sitemap
-            </Link> */}
           </div>
 
           {/* Mobile menu button */}
@@ -196,19 +180,32 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto px-2 pt-2 pb-4 space-y-1 border-t border-gray-200 bg-white">
           {mainNavigation.map(item => (
             <div key={item.label}>
-              <button
-                onClick={() => toggleSubmenu(item.label)}
-                className="w-full flex justify-between items-center px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-              >
-                {t(`navbar.${item.label.toLowerCase()}`)}
+              <div className="flex items-center justify-between">
+                <Link
+                  to={item.href}
+                  onClick={() => {
+                    if (!item.children) closeMenu();
+                  }}
+                  className={`flex-1 px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500 ${
+                    item.children ? 'cursor-pointer' : ''
+                  }`}
+                >
+                  {t(`navbar.${item.label.toLowerCase()}`)}
+                </Link>
                 {item.children && (
-                  <ChevronDown
-                    className={`h-5 w-5 transition-transform ${
-                      activeMenu === item.label ? 'transform rotate-180' : ''
-                    }`}
-                  />
+                  <button
+                    onClick={() => toggleSubmenu(item.label)}
+                    className="px-4 py-2 text-gray-700 hover:text-primary-500"
+                    aria-label={`Toggle ${item.label} submenu`}
+                  >
+                    <ChevronDown
+                      className={`h-5 w-5 transition-transform ${
+                        activeMenu === item.label ? 'transform rotate-180' : ''
+                      }`}
+                    />
+                  </button>
                 )}
-              </button>
+              </div>
               {item.children && activeMenu === item.label && (
                 <div className="pl-6 py-2 space-y-1 bg-gray-50">
                   {item.children.map(child => (
@@ -233,11 +230,11 @@ const Navbar: React.FC = () => {
             🚀 Join Us
           </Link>
           <Link
-            to="/about"
+            to="/contact"
             onClick={closeMenu}
             className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
           >
-            About
+            Contact
           </Link>
           {isMeilisearchEnabled && (
             <Link
