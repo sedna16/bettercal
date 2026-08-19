@@ -63,7 +63,7 @@ async function setupStarterKit() {
     'City';
   const region = await askQuestion('Region (e.g., "NCR", "Region VII"): ');
   const province = await askQuestion(
-    'Province (e.g., "Metro Manila", "Cebu"): '
+    'Province (e.g., "Metro Manila", "Caloocan"): '
   );
   const mayor = await askQuestion('Mayor/Governor Name: ');
   const websiteUrl = await askQuestion(
@@ -94,7 +94,7 @@ async function setupStarterKit() {
     'info@your-city.gov.ph': contactEmail,
     '\\(032\\) 123-4567': contactPhone,
     'Region VII': region,
-    Cebu: province,
+    Caloocan: province,
     "Your Mayor\\'s Name": mayor,
     "Your Vice Mayor\\'s Name": 'Vice Mayor Name', // This would need to be asked separately
   };

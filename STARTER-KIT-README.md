@@ -62,7 +62,7 @@ A modern, multilingual, and accessible website template designed specifically fo
    VITE_GOVERNMENT_NAME="Your City/Municipality Name"
    VITE_GOVERNMENT_TYPE="City" # or "Municipality"
    VITE_REGION="Region VII"
-   VITE_PROVINCE="Cebu"
+   VITE_PROVINCE="Caloocan"
    VITE_WEBSITE_URL="https://your-website.gov.ph"
    VITE_CONTACT_EMAIL="info@your-website.gov.ph"
    VITE_CONTACT_PHONE="(032) 123-4567"
@@ -118,7 +118,7 @@ Edit `src/data/government.yaml`:
 name: 'Your City/Municipality Name'
 type: 'City' # or "Municipality"
 region: 'Region VII'
-province: 'Cebu'
+province: 'Caloocan'
 mayor: "Your Mayor's Name"
 vice_mayor: "Your Vice Mayor's Name"
 established: '1950'
