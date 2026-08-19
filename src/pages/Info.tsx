@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
 import { Banner } from '@bettergov/kapwa/banner';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { type ReactNode } from 'react';
 import SEO from '../components/SEO';
 import { interpolate } from '../lib/markdownLoader';
 import { createMarkdownComponents } from '../lib/markdownComponents';
@@ -24,9 +25,10 @@ const pageContent: Record<string, string> = {
 interface InfoProps {
   slug: string;
   label: string;
+  children?: ReactNode;
 }
 
-const Info: React.FC<InfoProps> = ({ slug, label }) => {
+const Info: React.FC<InfoProps> = ({ slug, label, children }) => {
   const raw = pageContent[slug];
 
   if (!raw) {
@@ -77,6 +79,7 @@ const Info: React.FC<InfoProps> = ({ slug, label }) => {
             </ReactMarkdown>
           </CardHeader>
         </Card>
+        {children}
       </Section>
     </>
   );
